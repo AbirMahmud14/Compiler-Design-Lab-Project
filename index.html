@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Language Tokenizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>C Language Tokenizer</h1>
+            <p>Input C code and get tokenized output with symbol table and comments</p>
+        </header>
+
+        <div class="main-content">
+            <div class="input-section">
+                <h2>Input C Code</h2>
+                <textarea id="cCodeInput" placeholder="Enter your C code here...&#10;&#10;Example:&#10;#include &lt;stdio.h&gt;&#10;&#10;int main() {&#10;    int x = 10; // This is a comment&#10;    printf(&quot;Hello World&quot;);&#10;    return 0;&#10;}"></textarea>
+                <button id="tokenizeBtn" onclick="tokenizeCode()">Tokenize Code</button>
+            </div>
+
+            <div class="output-section">
+                <div class="output-tabs">
+                    <button class="tab-btn active" onclick="showTab('tokens')">Token Table</button>
+                    <button class="tab-btn" onclick="showTab('symbols')">Symbol Table</button>
+                    <button class="tab-btn" onclick="showTab('comments')">Comments</button>
+                </div>
+
+                <div id="tokens" class="tab-content active">
+                    <h3>Token Table</h3>
+                    <div class="table-container">
+                        <table id="tokenTable">
+                            <thead>
+                                <tr>
+                                    <th>Token</th>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tokenTableBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="symbols" class="tab-content">
+                    <h3>Symbol Table</h3>
+                    <div class="table-container">
+                        <table id="symbolTable">
+                            <thead>
+                                <tr>
+                                    <th>Symbol</th>
+                                    <th>Type</th>
+                                    <th>Scope</th>
+                                    <th>Line</th>
+                                </tr>
+                            </thead>
+                            <tbody id="symbolTableBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="comments" class="tab-content">
+                    <h3>Comments</h3>
+                    <div id="commentsList" class="comments-container">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
